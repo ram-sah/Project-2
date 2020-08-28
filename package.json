@@ -1,5 +1,5 @@
 {
-  "name": "1-Passport-Example",
+  "name": "project-2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "test": "npm run lint",
     "start": "node server.js",
     "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
+    "fix": "npx eslint --fix .",
     "watch": "nodemon server.js"
   },
   "keywords": [],
