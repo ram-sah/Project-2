@@ -1,16 +1,16 @@
 {
   "development": {
-    "username": "p54u8w5btvsnufh1",
-    "password": "ansalljq8iz0ijok",
-    "database": "ahi2kc5x0fovw0lp",
-    "host": "qn0cquuabmqczee2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "password",
+    "database": "wine_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "p54u8w5btvsnufh1",
-    "password": "ansalljq8iz0ijok",
-    "database": "ahi2kc5x0fovw0lp",
-    "host": "qn0cquuabmqczee2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "root",
+    "password": "password",
+    "database": "wine_db",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
