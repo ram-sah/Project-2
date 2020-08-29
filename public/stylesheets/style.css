@@ -2,3 +2,115 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+body {
+  font-family: "Lato", sans-serif;
+  background-image: url(https://i.pinimg.com/originals/07/eb/09/07eb09e6867bd4999062d8b197bcef98.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 60px 8px 60px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px;
+  /* Same as the width of the sidenav */
+  font-size: 28px;
+  /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+      padding-top: 15px;
+  }
+
+  .sidenav a {
+      font-size: 18px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.column2 {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+.column3 {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+}
+
+.content {
+  margin-left: 160px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+/* Time periods chart */
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
