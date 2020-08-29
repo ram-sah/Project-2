@@ -1,14 +1,12 @@
-//database wine_db
-
 module.exports = function(sequelize, DataTypes) {
-  const wine = sequelize.define("wine", {
+  const Product = sequelize.define("Product", {
     upc: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BIGINT,
       allowNull: false,
       primaryKey: true
     },
-    productName: {
-      type: DataTypes.CHAR(255),
+    body: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     unitCost: {
@@ -20,36 +18,33 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     vendor: {
-      type: DataTypes.CHAR(45),
-      allowNull: false
-    },
-    country: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     },
     geoOne: {
-      type: DataTypes.CHAR(45)
+      type: DataTypes.STRING,
+      allowNull: false
     },
     geoTwo: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     },
     typeOne: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     },
     typeTwo: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     },
     typeThree: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     },
     unitSize: {
-      type: DataTypes.CHAR(45),
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
-  return wine;
+  return Product;
 };
