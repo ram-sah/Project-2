@@ -54,7 +54,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => { // eslint-disable-line
+  down: async (queryInterface /*, Sequelize*/) => {
     await queryInterface.dropTable("products");
   }
 };
