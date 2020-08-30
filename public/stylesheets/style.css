@@ -24,7 +24,7 @@ body {
 }
 
 .sidenav a {
-  padding: 60px 8px 60px 16px;
+  padding: 60px 8px 40px 16px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -75,6 +75,44 @@ body {
   width: 100%;
   padding: 0 10px;
 }
+.column4 {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+.column5 {
+  float: left;
+  width: 100%;
+  padding: 0 10px;
+}
+.column6 {
+  float: right;
+  width: auto;
+  padding: 10px;
+}
+.myButton {
+	background-color:#44c767;
+	border-radius:29px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e88f00;
+}
+.left{
+  float: right;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 
 /* Remove extra left and right margins, due to padding */
 .row {
@@ -105,6 +143,13 @@ body {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 40px;
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+.card1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 2px;
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
