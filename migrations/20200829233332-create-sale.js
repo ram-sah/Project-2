@@ -9,10 +9,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       upc: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        allowNull: false
       },
       date: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
+        allowNull: false
+      },
+      unitssold: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

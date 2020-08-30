@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
       date: {
         type: DataTypes.DATEONLY,
         allowNull: false
+      },
+      unitssold: {
+        type: DataTypes.INTEGER,
+        allowNull: false
       }
     },
     {
