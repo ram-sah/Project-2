@@ -1,50 +1,68 @@
-module.exports = function(sequelize, DataTypes) {
-  const Product = sequelize.define("Product", {
-    upc: {
-      type: DataTypes.BIGINT,
-      allowNull: false,
-      primaryKey: true
-    },
-    body: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    unitCost: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false
-    },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false
-    },
-    vendor: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    geoOne: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    geoTwo: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    typeOne: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    typeTwo: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    typeThree: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    unitSize: {
-      type: DataTypes.STRING,
-      allowNull: false
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class product extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-  });
-  return Product;
+  }
+  product.init(
+    {
+      upc: {
+        type: DataTypes.BIGINT,
+        allowNull: false,
+        primaryKey: true
+      },
+      productname: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      unitcost: {
+        type: DataTypes.DECIMAL,
+        allowNull: false
+      },
+      price: {
+        type: DataTypes.DECIMAL,
+        allowNull: false
+      },
+      vendor: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      geoone: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      geotwo: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      typeone: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      typetwo: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      typethree: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      unitsize: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    },
+    {
+      sequelize,
+      modelName: "product"
+    }
+  );
+  return product;
 };

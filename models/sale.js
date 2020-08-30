@@ -1,19 +1,31 @@
-module.exports = function(sequelize, DataTypes) {
-  const Sale = sequelize.define("Sale", {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false,
-      primaryKey: true
-    },
-    upc: {
-      type: DataTypes.BIGINT,
-      allowNull: false
-    },
-    date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class sale extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-  });
-  return Sale;
+  }
+  sale.init(
+    {
+      upc: {
+        type: DataTypes.BIGINT,
+        allowNull: false
+      },
+      date: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+      }
+    },
+    {
+      sequelize,
+      modelName: "sale"
+    }
+  );
+  return sale;
 };
