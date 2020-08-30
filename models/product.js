@@ -34,25 +34,25 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      geoone: {
+      country: {
         type: DataTypes.STRING,
         allowNull: false
       },
+      geoone: {
+        type: DataTypes.STRING
+      },
       geotwo: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       typeone: {
         type: DataTypes.STRING,
         allowNull: false
       },
       typetwo: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       typethree: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       unitsize: {
         type: DataTypes.STRING,
