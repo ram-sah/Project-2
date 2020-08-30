@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) { // eslint-disable-line
+    static associate(/*models*/) {
       // define association here
     }
   }
@@ -34,25 +34,25 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      geoone: {
+      country: {
         type: DataTypes.STRING,
         allowNull: false
       },
+      geoone: {
+        type: DataTypes.STRING
+      },
       geotwo: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       typeone: {
         type: DataTypes.STRING,
         allowNull: false
       },
       typetwo: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       typethree: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       unitsize: {
         type: DataTypes.STRING,

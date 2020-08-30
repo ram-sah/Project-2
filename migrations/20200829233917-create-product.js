@@ -23,6 +23,9 @@ module.exports = {
       vendor: {
         type: Sequelize.STRING
       },
+      country: {
+        type: Sequelize.STRING
+      },
       geoone: {
         type: Sequelize.STRING
       },
@@ -51,7 +54,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => { // eslint-disable-line
+  down: async (queryInterface /*, Sequelize*/) => {
     await queryInterface.dropTable("products");
   }
 };
