@@ -5,13 +5,70 @@ form.login {
 
 body {
   font-family: "Lato", sans-serif;
+  /* background-image: url(https://hdwallsource.com/img/2018/2/wine-wallpaper-background-hd-62581-64553-hd-wallpapers.jpg); */
   background-image: url(https://i.pinimg.com/originals/07/eb/09/07eb09e6867bd4999062d8b197bcef98.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-.sidenav {
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 150px;
+  background-color: #9a6243;
+  position: fixed;
+  height: 80%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+  padding: 30px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #885336;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  /* height: 1000px; */
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .column2 {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+/* .sidenav {
   height: 100%;
   width: 160px;
   position: fixed;
@@ -33,7 +90,7 @@ body {
 
 .sidenav a:hover {
   color: #f1f1f1;
-}
+} */
 
 .main {
   margin-left: 160px;
@@ -46,6 +103,11 @@ body {
 @media screen and (max-height: 450px) {
   .sidenav {
       padding-top: 15px;
+  }
+  .column2 {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
   }
 
   .sidenav a {
@@ -137,6 +199,11 @@ body {
       display: block;
       margin-bottom: 20px;
   }
+  .column2 {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
 }
 
 /* Style the counter cards */
@@ -145,14 +212,16 @@ body {
   margin-top: 40px;
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #c4b9c1;
+  opacity: 88%;
 }
 .card1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 2px;
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: #c4b9c1;
+  opacity: 88%;
 }
 /* Time periods chart */
 #chartdiv {
