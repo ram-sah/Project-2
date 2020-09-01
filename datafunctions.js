@@ -1,20 +1,20 @@
 //const db = require("./models");
-//const moment = require("moment");
+const moment = require("moment");
 //const { Op } = require("sequelize");
 const { QueryTypes } = require("sequelize");
 const { sequelize } = require("./models");
 
 const getData = {
   getSalesData: async period => {
-    console.log(period);
-    // const today = moment(new Date()).format("YYYY-MM-DD");
-    // console.log(today.subtract(2, "days"));
-    const date1 = "2020-08-26";
-    //const date1 = "2020-08-26";
-    //const date2 = moment("2020-08-26", "YYYY-MM-DD").subtract(period, "days");
-    //need to get these moments working, not parsing the dates
-    const date2 = "2020-08-24";
-    const date3 = "2020-08-22";
+    //let date1 = moment().format('YYYY-MM-DD'); //real current date to use when data is fully updated
+    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    const date1Input = moment(date1).subtract(period, "days");
+    const date2 = moment(date1)
+      .subtract(period, "days")
+      .format("YYYY-MM-DD"); //08-29
+    const date3 = moment(date1Input)
+      .subtract(period, "days")
+      .format("YYYY-MM-DD");
     const sales1 = await sequelize.query(
       `SELECT sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
       { type: QueryTypes.SELECT }
@@ -24,11 +24,11 @@ const getData = {
       { type: QueryTypes.SELECT }
     );
     const margin1 = await sequelize.query(
-      `SELECT 1 - sum(products.unitcost *sales.unitssold) / sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
+      `SELECT 1 - sum(products.unitcost * sales.unitssold) / sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
       { type: QueryTypes.SELECT }
     );
     const margin2 = await sequelize.query(
-      `SELECT 1 - sum(products.unitcost *sales.unitssold) / sum(products.price * sales.unitssold) AS result2 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date2}" AND sales.date > "${date3}";`,
+      `SELECT 1 - sum(products.unitcost * sales.unitssold) / sum(products.price * sales.unitssold) AS result2 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date2}" AND sales.date > "${date3}";`,
       { type: QueryTypes.SELECT }
     );
     const aring1 = await sequelize.query(
@@ -46,7 +46,8 @@ const getData = {
       margin1: margin1[0].result1,
       margin2: margin2[0].result2,
       aring1: aring1[0].result1,
-      aring3: aring2[0].result2
+      aring3: aring2[0].result2,
+      chartdata: {}
     };
     return returnboj;
   }

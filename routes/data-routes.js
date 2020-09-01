@@ -29,8 +29,4 @@ module.exports = function(app) {
     const data = await getData.getSalesData(period);
     res.json(data);
   });
-  app.get("/aaa", async (req, res) => {
-    const data = await getData.getAllData();
-    res.json(data);
-  });
 };
