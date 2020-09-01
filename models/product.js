@@ -64,5 +64,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "product"
     }
   );
+
+  product.associate = models => {
+    product.hasMany(models.sale);
+  };
   return product;
 };
