@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="stylesheets/style.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -29,35 +27,10 @@
             <a href="/import">Import</a>
             <a href="#Custom Search">Custom Search</a>
         </nav>
-
-        <div class="row content">
-            <h2 style="text-align: center;">WINES</h2>
-            <div class="column5">
-                <div class="card1">
-                    <p>French red 1 | 10.99 | 20.99 | France | Bowler | UPC (PK)</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p>Spanish White 1 | 15.99 | 27.99 | Spain | Artisans | UPC (PK)
-                    </p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p>American</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p> Japnise</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p> Russian</p>
-                </div>
-            </div>
+        <h2 style="text-align: center;">WINES</h2>
+        <div id="wineArea" class="row content">
+           
+            
             <div class="column5">
                 <div class="card1">
                     <button type="button" class="btn btn-primary myButton" data-toggle="modal"
@@ -81,40 +54,55 @@
                         <form>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">UPC</label>
-                                <input type="input" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="Enter UPC">
-                                <small id="emailHelp" class="form-text text-muted"></small>
+                                <input type="input" class="form-control" id="upc"
+                                    aria-describedby="emailHelp" placeholder="Enter UPC">                                
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Product Name</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="productname" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Unit Cost</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="unitcost" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Price</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="price" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Vendor</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="vendor" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Country</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="country" placeholder="">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Type</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <label for="exampleInputPassword1">GeoOne</label>
+                                <input type="input" class="form-control" id="geoone" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">GeoTwo</label>
+                                <input type="input" class="form-control" id="geotwo" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">TypeOne</label>
+                                <input type="input" class="form-control" id="typeone" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">TypeTwo</label>
+                                <input type="input" class="form-control" id="typetwo" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">TypeThree</label>
+                                <input type="input" class="form-control" id="typethree" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Unit Size</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
+                                <input type="input" class="form-control" id="unitsize" placeholder="">
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button id="save-product" class="btn btn-primary">Save</button>
                         </form>
                     </div>
 
@@ -127,6 +115,6 @@
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-<script src="js/wine.js"></script>
+<script src="js/products.js"></script>
 
 </html>
