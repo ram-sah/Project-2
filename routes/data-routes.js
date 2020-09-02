@@ -2,7 +2,7 @@
 //const db = require("../models");
 // Requiring path to so we can use relative routes to our HTML files
 const path = require("path");
-const getData = require("../datafunctions.js");
+const getData = require("../config/orm.js");
 
 module.exports = function(app) {
   //Get main page index file
