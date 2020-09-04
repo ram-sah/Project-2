@@ -22,9 +22,8 @@ app.use(express.json());
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-
 // / Set Handlebars.
-var exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -33,16 +32,14 @@ app.set("view engine", "handlebars");
 //   res.render('index');
 // });
 
-var winesRoutes = require("./controllers/winesController.js");
+const winesRoutes = require("./controllers/winesController.js");
 
 // Requiring our routes
 app.use(require("./routes/html-routes.js"));
 require("./routes/api-routes.js")(app);
 require("./routes/data-routes.js")(app);
 
-
 app.use(winesRoutes);
-
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({}).then(() => {

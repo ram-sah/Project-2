@@ -1,10 +1,9 @@
-var express = require("express");
+const express = require("express");
 
-var router = express.Router();
-
+const router = express.Router();
 
 router.get("/", async (req, res) => {
-    res.render("index");
+  res.render("index");
 });
 
 router.get("/wines", async (req, res) => {
@@ -19,15 +18,8 @@ router.get("/import", async (req, res) => {
   res.render("import");
 });
 
-
 // Export routes for server.js to use.
 module.exports = router;
-
-
-
-
-
-
 
 // // Requiring path to so we can use relative routes to our HTML files
 // const path = require("path");
