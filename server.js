@@ -36,7 +36,7 @@ app.set("view engine", "handlebars");
 var winesRoutes = require("./controllers/winesController.js");
 
 // Requiring our routes
-// require("./routes/html-routes.js")(app);
+app.use(require("./routes/html-routes.js"));
 require("./routes/api-routes.js")(app);
 require("./routes/data-routes.js")(app);
 

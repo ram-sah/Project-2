@@ -1,101 +1,91 @@
-   <main>
-        <nav class="sidebar">
-            <a href="/">Home</a>
-            <a href="/wines">Wines</a>
-            <a href="/data">Data</a>
-            <a href="/import">Import</a>
-            <a href="#Custom Search">Custom Search</a>
-        </nav>
+<main>
+    <nav class="sidebar">
+        <a href="/">Home</a>
+        <a href="/wines">Wines</a>
+        <a href="/data">Data</a>
+        <a href="/import">Import</a>
+        <a href="#Custom Search">Custom Search</a>
+    </nav>
+    <h2 style="text-align: center;">WINES</h2>
+    <div id="wineArea" class="row content">
 
-        <div class="row content">
-            <h2 style="text-align: center;">WINES</h2>
-            <div class="column5">
-                <div class="card1">
-                    <p>French red 1 | 10.99 | 20.99 | France | Bowler | UPC (PK)</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p>Spanish White 1 | 15.99 | 27.99 | Spain | Artisans | UPC (PK)
-                    </p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p>American</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p> Japnise</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <p> Russian</p>
-                </div>
-            </div>
-            <div class="column5">
-                <div class="card1">
-                    <button type="button" class="btn btn-primary myButton" data-toggle="modal"
-                        data-target="#exampleModalCenter">ADD NEW WINE</button>
-                </div>
+
+        <div class="column5">
+            <div class="card1">
+                <button type="button" class="btn btn-primary myButton" data-toggle="modal"
+                    data-target="#exampleModalCenter">ADD NEW WINE</button>
             </div>
         </div>
+    </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add New Wine</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">UPC</label>
-                                <input type="input" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="Enter UPC">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Product Name</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Unit Cost</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Price</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Vendor</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Country</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Type</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Unit Size</label>
-                                <input type="input" class="form-control" id="exampleInputPassword1" placeholder="">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </form>
-                    </div>
-
+    <!-- <- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Add New Wine</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">UPC</label>
+                            <input type="input" class="form-control" id="upc" aria-describedby="emailHelp"
+                                placeholder="Enter UPC">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Product Name</label>
+                            <input type="input" class="form-control" id="productname" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Unit Cost</label>
+                            <input type="input" class="form-control" id="unitcost" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Price</label>
+                            <input type="input" class="form-control" id="price" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Vendor</label>
+                            <input type="input" class="form-control" id="vendor" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Country</label>
+                            <input type="input" class="form-control" id="country" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">GeoOne</label>
+                            <input type="input" class="form-control" id="geoone" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">GeoTwo</label>
+                            <input type="input" class="form-control" id="geotwo" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">TypeOne</label>
+                            <input type="input" class="form-control" id="typeone" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">TypeTwo</label>
+                            <input type="input" class="form-control" id="typetwo" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">TypeThree</label>
+                            <input type="input" class="form-control" id="typethree" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Unit Size</label>
+                            <input type="input" class="form-control" id="unitsize" placeholder="">
+                        </div>
+                        <button id="save-product" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+
             </div>
         </div>
-    </main>
+    </div>
+</main>
