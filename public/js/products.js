@@ -1,4 +1,5 @@
 //click on ID function
+let productList;
 $("#save-product").on("click", () => {
   event.preventDefault();
   const product = {
@@ -24,7 +25,9 @@ $("#save-product").on("click", () => {
 
 $.get("/api/product", dbProd => {
   console.log(dbProd);
+  productList = dbProd;
   // add a row for every product to the DOM
+  $("#wineList").empty();
   for (let i = 0; i < dbProd.length; i++) {
     const cardWine = `<div class="column5">
   <div class="card1">
@@ -32,5 +35,18 @@ $.get("/api/product", dbProd => {
   </div>
   </div>`;
     $("#wineArea").prepend(cardWine);
+    $("#wineList").append(
+      `<option value=${i}>${dbProd[i].productname}</option>`
+    );
   }
+});
+
+$("#wineList").change(() => {
+  // console.log("value selected:", event.target.value);
+  // console.log(productList[event.target.value]);
+  $("#price").text(productList[event.target.value].price);
+  $("#vendor").text(productList[event.target.value].vendor);
+  $("#cost").text(productList[event.target.value].unitcost);
+  $("#size").text(productList[event.target.value].unitsize);
+  $("#country").text(productList[event.target.value].country);
 });
