@@ -1,113 +1,63 @@
-// // Here is the O.R.M. where you write functions that takes inputs and conditions
-// // and turns them into database commands like SQL.
+const moment = require("moment");
+const { QueryTypes } = require("sequelize");
+const { sequelize } = require("../models");
+const { cb } = require("./datafunctions/chartbuilder.js");
+const { move } = require("./datafunctions/fast_slow.js");
 
-// var connection = require("./connection.js");
+const getData = {
+  getSalesData: async period => {
+    //let date1 = moment().format('YYYY-MM-DD'); //real current date to use when data is fully updated
+    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    const date1Input = moment(date1).subtract(period, "days");
+    const date2 = moment(date1)
+      .subtract(period, "days")
+      .format("YYYY-MM-DD");
+    const date3 = moment(date1Input)
+      .subtract(period, "days")
+      .format("YYYY-MM-DD");
+    const chartData = await cb(date1, period);
+    const moveData = await move(date1, period);
+    const sales1 = await sequelize.query(
+      `SELECT sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
+      { type: QueryTypes.SELECT }
+    );
+    const sales2 = await sequelize.query(
+      `SELECT sum(products.price * sales.unitssold) AS result2 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date2}" AND sales.date > "${date3}";`,
+      { type: QueryTypes.SELECT }
+    );
+    const margin1 = await sequelize.query(
+      `SELECT 1 - sum(products.unitcost * sales.unitssold) / sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
+      { type: QueryTypes.SELECT }
+    );
+    const margin2 = await sequelize.query(
+      `SELECT 1 - sum(products.unitcost * sales.unitssold) / sum(products.price * sales.unitssold) AS result2 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date2}" AND sales.date > "${date3}";`,
+      { type: QueryTypes.SELECT }
+    );
+    const aring1 = await sequelize.query(
+      `SELECT sum(products.price * sales.unitssold) / sum(sales.unitssold) result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
+      { type: QueryTypes.SELECT }
+    );
+    const aring2 = await sequelize.query(
+      `SELECT sum(products.price * sales.unitssold) / sum(sales.unitssold) result2 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date2}" AND sales.date > "${date3}";`,
+      { type: QueryTypes.SELECT }
+    );
 
-// function printQuestionMarks(num) {
-//   var arr = [];
+    const returnObj = {
+      sales1: sales1[0].result1,
+      sales2: sales2[0].result2,
+      margin1: margin1[0].result1,
+      margin2: margin2[0].result2,
+      aring1: aring1[0].result1,
+      aring3: aring2[0].result2,
+      chartdata: chartData,
+      moveUpData: moveData[0],
+      moveDownData: moveData[1]
+    };
+    console.log(returnObj);
+    return returnObj;
+  }
+};
 
-//   for (var i = 0; i < num; i++) {
-//     arr.push("?");
-//   }
+console.log(getData.getSalesData(7));
 
-//   return arr.toString();
-// }
-
-// function objToSql(ob) {
-//   // column1=value, column2=value2,...
-//   var arr = [];
-
-//   for (var key in ob) {
-//     arr.push(key + "=" + ob[key]);
-//   }
-
-//   return arr.toString();
-// }
-
-// var orm = {
-//   all: function(tableInput, cb) {
-//     var queryString = "SELECT * FROM " + tableInput + ";";
-//     connection.query(queryString, function(err, result) {
-//       if (err) {
-//         throw err;
-//       }
-//       cb(result);
-//     });
-//   },
-//   // vals is an array of values that we want to save to cols
-//   // cols are the columns we want to insert the values into
-//   create: function(table, cols, vals, cb) {
-//     var queryString = "INSERT INTO " + table;
-
-//     queryString += " (";
-//     queryString += cols.toString();
-//     queryString += ") ";
-//     queryString += "VALUES (";
-//     queryString += printQuestionMarks(vals.length);
-//     queryString += ") ";
-
-//     console.log(queryString);
-
-//     connection.query(queryString, vals, function(err, result) {
-//       if (err) {
-//         throw err;
-//       }
-//       cb(result);
-//     });
-//   },
-//   // objColVals would be the columns and values that you want to update
-//   // an example of objColVals would be {name: panther, sleepy: true}
-//   update: function(table, objColVals, condition, cb) {
-//     var queryString = "UPDATE " + table;
-
-//     queryString += " SET ";
-//     queryString += objToSql(objColVals);
-//     queryString += " WHERE ";
-//     queryString += condition;
-
-//     console.log(queryString);
-//     connection.query(queryString, function(err, result) {
-//       if (err) {
-//         throw err;
-//       }
-//       cb(result);
-//     });
-//   }
-// };
-
-// module.exports = orm;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var express = require("express");
-
-// var router = express.Router();
-
-// // Import the model (cat.js) to use its database functions.
-// var wine = require("../models/index.js");
-
-// // Create all our routes and set up logic within those routes where required.
-// router.get("/", function(req, res) {
-//   wine.all(function(data) {
-//     var hbsObject = {
-//       data: data
-//     };
-//     console.log(hbsObject);
-//     res.render("index", hbsObject);
-//   });
-// });
-
-// // Export routes for server.js to use.
-// module.exports = router;
+module.exports = getData;
