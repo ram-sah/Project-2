@@ -6,7 +6,7 @@ form.login {
 body {
   font-family: "Lato", sans-serif;
   /* background-image: url(https://hdwallsource.com/img/2018/2/wine-wallpaper-background-hd-62581-64553-hd-wallpapers.jpg); */
-  background-image: url(https://i.pinimg.com/originals/07/eb/09/07eb09e6867bd4999062d8b197bcef98.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/07/eb/09/07eb09e6867bd4999062d8b197bcef98.jpg); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -42,77 +42,9 @@ body {
 }
 
 div.content {
-  margin-left: 200px;
+  margin-left: 150px;
   padding: 1px 16px;
   /* height: 1000px; */
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-  .column2 {
-    float: left;
-    width: 100%;
-    padding: 0 10px;
-  }
-}
-
-/* .sidenav {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 60px 8px 40px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-} */
-
-.main {
-  margin-left: 160px;
-  /* Same as the width of the sidenav */
-  font-size: 28px;
-  /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-      padding-top: 15px;
-  }
-  .column2 {
-    float: left;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .sidenav a {
-      font-size: 18px;
-  }
 }
 
 * {
@@ -126,27 +58,18 @@ div.content {
   padding: 0 10px;
 }
 
-.column2 {
+.column2, .column4{
   float: left;
   width: 50%;
   padding: 0 10px;
 }
 
-.column3 {
+.column3, .column5{
   float: left;
   width: 100%;
   padding: 0 10px;
 }
-.column4 {
-  float: left;
-  width: 33%;
-  padding: 0 10px;
-}
-.column5 {
-  float: left;
-  width: 100%;
-  padding: 0 10px;
-}
+
 .column6 {
   float: right;
   width: auto;
@@ -154,16 +77,17 @@ div.content {
 }
 .myButton {
 	background-color:#44c767;
-	border-radius:29px;
+	border-radius:20px;
 	border:1px solid #18ab29;
 	display:inline-block;
-	cursor:pointer;
+  cursor:pointer;
+  margin-left:10px;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:17px;
-	padding:16px 31px;
+	font-size:15px;
+	padding:12px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #e88f00;
+  text-shadow:0px 1px 0px #e88f00; 
 }
 .left{
   float: right;
@@ -192,18 +116,12 @@ div.content {
   clear: both;
 }
 
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-  }
-  .column2 {
-    float: left;
-    width: 100%;
-    padding: 0 10px;
-  }
+.main {
+  margin-left: 160px;
+  /* Same as the width of the sidenav */
+  font-size: 28px;
+  /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
 
 /* Style the counter cards */
@@ -227,4 +145,74 @@ div.content {
 #chartdiv {
   width: 100%;
   height: 500px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+  }
+  .column2, .column4{
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+      padding-top: 15px;
+  }
+  .column2, .column4{
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .sidenav a {
+      font-size: 18px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  .column2, .column4{
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+#footer{
+  padding: 12px;
+  position: fixed;
+  /* left: 0; */
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color:#9a6342;
+}
+.footer_left > p {
+  font-size: 12px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.footer_left > p a {  
+  font-weight: bold;
 }
