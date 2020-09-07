@@ -1,9 +1,7 @@
 $(document).ready(() => {
   getChartData().then(data => {
     const chartRange = am4core.create("chartdiv", am4charts.XYChart);
-    chartRange.data = [];
     chartRange.data = data;
-    console.log(chartRange.data)
     const dateAxis = chartRange.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.grid.template.location = 0;
     dateAxis.renderer.minGridDistance = 60;
@@ -159,6 +157,7 @@ $(document).ready(() => {
     });
 
     const valueAxis1 = chartup.yAxes.push(new am4charts.ValueAxis());
+    console.log(valueAxis1);
 
     // Create series
     const series1 = chartup.series.push(new am4charts.ColumnSeries());
@@ -189,6 +188,7 @@ $(document).ready(() => {
     });
 
     const valueAxis2 = chartdn.yAxes.push(new am4charts.ValueAxis());
+    console.log(valueAxis2);
 
     // Create series
     const series2 = chartdn.series.push(new am4charts.ColumnSeries());
@@ -221,7 +221,11 @@ $(document).ready(() => {
   }
 
   function showDateRange() {
-    $("#daterangedisplay").text($(location).attr("pathname").replace("/", ""));
+    $("#daterangedisplay").text(
+      $(location)
+        .attr("pathname")
+        .replace("/", "")
+    );
   }
   showDateRange();
   $(".dropdown-item").on("click", () => {
