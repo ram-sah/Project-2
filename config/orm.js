@@ -6,7 +6,6 @@ const { move } = require("./datafunctions/fast_slow.js");
 
 const getData = {
   getSalesData: async period => {
-    //let date1 = moment().format('YYYY-MM-DD'); //real current date to use when data is fully updated
     const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
     const date1Input = moment(date1).subtract(period, "days");
     const date2 = moment(date1)
@@ -15,8 +14,8 @@ const getData = {
     const date3 = moment(date1Input)
       .subtract(period, "days")
       .format("YYYY-MM-DD");
-    const chartData = await cb(date1, period);
-    const moveData = await move(date1, period);
+    // const chartData = await cb(date1, period);
+    // const moveData = await move(date1, period);
     const sales1 = await sequelize.query(
       `SELECT sum(products.price * sales.unitssold) AS result1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date <= "${date1}" AND sales.date > "${date2}";`,
       { type: QueryTypes.SELECT }
@@ -48,16 +47,18 @@ const getData = {
       margin1: margin1[0].result1,
       margin2: margin2[0].result2,
       aring1: aring1[0].result1,
-      aring3: aring2[0].result2,
-      chartdata: chartData,
-      moveUpData: moveData[0],
-      moveDownData: moveData[1]
+      aring3: aring2[0].result2
     };
-    console.log(returnObj);
     return returnObj;
+  },
+  getChartData: async period => {
+    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    return cb(date1, period);
+  },
+  getMoveData: async period => {
+    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    return move(date1, period);
   }
 };
-
-console.log(getData.getSalesData(7));
 
 module.exports = getData;

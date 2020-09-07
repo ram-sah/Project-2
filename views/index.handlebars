@@ -12,39 +12,47 @@
             <a href="#Custom Search">Custom Search</a>
         </nav>
 
-        <div class="row content">
-            <div class="column">
-                <div class="card">
-                    <h3>Sales</h3>
-                    <p>Some text</p>
-                    <p>Some text</p>
-                </div>
+    <div class="row content">
+        <div class="column">
+            <div class="card">
+                <h3>Sales</h3>
+                <p>{{data.sales1}}</p>
+                <p>{{data.sales2}}</p>
             </div>
+        </div>
 
-            <div class="column">
-                <div class="card">
-                    <h3>Margin</h3>
-                    <p>Some text</p>
-                    <p>Some text</p>
-                </div>
+        <div class="column">
+            <div class="card">
+                <h3>Margin</h3>
+                <p>{{data.margin1}}</p>
+                <p>{{data.margin2}}</p>
             </div>
+        </div>
 
-            <div class="column">
-                <div class="card">
-                    <h3>Average Ring</h3>
-                    <p>Some text</p>
-                    <p>Some text</p>
-                </div>
+        <div class="column">
+            <div class="card">
+                <h3>Average Ring</h3>
+                <p>{{data.aring1}}</p>
+                <p>{{data.aring3}}</p>
             </div>
+        </div>
 
-            <div class="column">
-                <div class="card">
-                    <h3>Data Range</h3>
-                    <p>Some text</p>
-                    <p>Some text</p>
+        <div class="column">
+            <div class="card">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Date Range
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/3">3</a>
+                        <a class="dropdown-item" href="/7">7</a>
+                        <a class="dropdown-item" href="/14">14</a>
+                    </div>
+                    <h3 id="daterangedisplay"></h3>
                 </div>
             </div>
         </div>
+    </div>
 
         <div class="row content">
             <div class="column2">
@@ -54,24 +62,15 @@
                 </div>
             </div>
 
-            <div class="column2">
-                <div class="card">
-                    <h3>Map (by Revenue / Units</h3>
-                    <p>BONUS!!!</p>
-                    <p>BONUS!!!</p>
-                </div>
+        <div class="column2">
+            <div class="card">
+                <h3>Fast Movers</h3>
+                <div id="moveup"></div>
+            </div>
+            <div class="card">
+                <h3>Slow Movers</h3>
+                <div id="movedn"></div>
             </div>
         </div>
-
-        <div class="row content">
-            <div class="column3">
-                <div class="card">
-                    <h3>Slow / Fast Movers</h3>
-                    <p>BONUS ++</p>
-                    <p>BONUS ++</p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-    
+    </div>
+</main>
