@@ -19,16 +19,7 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.get('/', function (req, res) {
-//   res.render('index');
-// });
-
 const winesRoutes = require("./controllers/winesController.js");
-
-// Requiring our routes
-app.use(require("./routes/html-routes.js"));
-require("./routes/api-routes.js")(app);
-require("./routes/data-routes.js")(app);
 
 app.use(winesRoutes);
 

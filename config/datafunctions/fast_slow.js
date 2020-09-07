@@ -11,7 +11,6 @@ const movementBuilder = async (date, range) => {
   const date2 = moment(currentDate)
     .subtract(range * 2, "days")
     .format("YYYY-MM-DD");
-  console.log(currentDate, date1, date2);
   const data = await sequelize.query(
     `
 	SELECT 

@@ -2,28 +2,50 @@ const express = require("express");
 
 const router = express.Router();
 
-// Import the model (.js) to use its database functions.
-// const { product } = require("../models/index.js");
-const getData = require("../datafunctions.js");
-// const { Linter } = require("eslint");
+const getData = require("../config/orm.js");
+const db = require("../models");
 
-// router.get("/", async (req, res) => {
-//     res.render("index");
-// });
+router.get("/wines", async (req, res) => {
+  res.render("wines");
+});
 
-// Create all our routes and set up logic within those routes where required.
+router.get("/data", async (req, res) => {
+  res.render("data");
+});
+
+router.get("/import", async (req, res) => {
+  res.render("import");
+});
+
+router.get("/", async (req, res) => {
+  res.redirect("/7");
+});
+
+router.get("/getchart/:period", async (req, res) => {
+  const period = req.params.period;
+  const data = await getData.getChartData(period);
+  res.json(data);
+});
+
+router.get("/getmove/:period", async (req, res) => {
+  const period = req.params.period;
+  const data = await getData.getMoveData(period);
+  res.json(data);
+});
+
 router.get("/:period", async (req, res) => {
-  console.log("into routing function");
   const period = req.params.period;
   const data = await getData.getSalesData(period);
-  // product.all(data => {
   const hbsObject = {
     data: data
   };
-  console.log(hbsObject);
   res.render("index", hbsObject);
 });
-// });
 
-// Export routes for server.js to use.
+router.get("/api/product", (req, res) => {
+  db.product.findAll({}).then(dbresult => {
+    res.json(dbresult);
+  });
+});
+
 module.exports = router;
