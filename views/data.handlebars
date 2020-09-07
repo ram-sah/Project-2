@@ -1,50 +1,47 @@
- <main>
-        <nav class="sidebar">
-            <a href="/">Home</a>
-            <a href="/wines">Wines</a>
-            <a href="/data">Data</a>
-            <a href="/import">Import</a>
-            <a href="#Custom Search">Custom Search</a>
-        </nav>
+<main>
+    <nav class="sidebar">
+        <a href="/">Home</a>
+        <a href="/wines">Wines</a>
+        <a href="/data">Data</a>
+        <a href="/import">Import</a>
+        <a href="#Custom Search">Custom Search</a>
+    </nav>
 
-        <div class="row content">
-            <h2 style="text-align: center;">DATABASE TABLE</h2>
-            <div class="column4">
-                <div class="card">
-                    <h3>Wines</h3>
-                    <p>PK = UPC</p>
-                    <p>Name</p>
-                    <p>Cost</p>
-                    <p>Price</p>
-                    <p>Vendor</p>
-                    <p>Type 1 (Color)</p>
-                    <p>Type 2 (Style)</p>
-                    <p>Type 3 (Natural / Trad)</p>
-                    <p>Bottle Size</p>
-                </div>
-            </div>
-
-            <div class="column4">
-                <div class="card">
-                    <h3>VENDOR</h3>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                    <p>PK (NAME)</p>
-                </div>
-            </div>
-            <div class="column4">
-                <div class="card">
-                    <h3>SALES DATA</h3>
-                    <p>Date</p>
-                    <p>PK UPC</p>
-                    <p>Units Sold</p>
-                </div>
+    <br><h2 style="text-align: center;"><u>DATABASE</u></h2>
+    <div class="row content">
+        <div class="column4">
+            <div class="card">
+                <h3>WINES DETAILS</h3>
+                <form>
+                    <div class="form-group" id="control">
+                        <label for="exampleFormControlSelect1">Select Wine Type</label>
+                        <select class="form-control" id="wineList">
+                        </select>
+                    </div>
+                </form>
+                <p style="text-align: left;">UPC:-<span id="upc"></span></p>
+                <p style="text-align: left;">Vendor:-<span id="vendor"></span></p>
+                <p style="text-align: left;">Price:-<span id="price"></span></p>                
+                <p style="text-align: left;">Unit Cost:-<span id="cost"></span></p>
+                <p style="text-align: left;">Unit Size:-<span id="size"></span></p>
+                <p style="text-align: left;">Country:-<span id="country"></span></p>                
+                <p style="text-align: left;">Type One:-<span id="typeone"></span></p>
+                <p style="text-align: left;">Type Two:-<span id="typetwo"></span></p>
             </div>
         </div>
-    </main>
+
+        <div class="column4">
+            <div class="card">
+                <h3>VENDORS DETAILS</h3>
+                <form>
+                    <div class="form-group" id="control">
+                        <label for="exampleFormControlSelect1">Select Vendor to see Products</label>
+                        <select class="form-control" id="vendorList">
+                        </select>
+                    </div>
+                </form>
+                <p style="text-align: left;">Wine List:-<span id="vendorWine"></span></p>
+            </div>
+        </div>
+    </div>
+</main>
