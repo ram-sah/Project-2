@@ -5,20 +5,51 @@
         <a href="/data">Data</a>
         <a href="/import">Import</a>
         <a href="#Custom Search">Custom Search</a>
-    </nav>
-    <h2 style="text-align: center;">WINES</h2>
-    <div id="wineArea" class="row content">
+    </nav><br>
 
-
+    <h2 style="text-align: center;"><u>WINES</u></h2>
+    <div class="row content">
         <div class="column5">
-            <div class="card1">
-                <button type="button" class="btn btn-primary myButton" data-toggle="modal"
-                    data-target="#exampleModalCenter">ADD NEW WINE</button>
-            </div>
+            <button type="button" style="float: right; background-color:brown;" class="btn btn-primary myButton"
+                data-toggle="modal" data-target="#example">DELETE DATA</button>
+            <button id="lftbtn" type="button" style="float: right;" class="btn btn-primary myButton" data-toggle="modal"
+                data-target="#exampleModalCenter">ADD NEW DATA</button>
         </div>
     </div>
 
-    <!-- <- Modal -->
+    <div id="wineArea" class="row content">
+        <div class="column5">
+            <div class="card1">
+
+            </div>
+        </div>
+    </div>
+    <!--Delete Modal -->
+    <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">DELETE PRODUCT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Wine Name</label>
+                            <input type="input" class="form-control" id="prodt-name"
+                                placeholder="Enter Wine Name to Delete">
+                        </div>
+                        <button id="delete-product" style="background-color:brown" class="btn btn-primary">CONFIRM
+                            DELETE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Input Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -34,7 +65,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">UPC</label>
                             <input type="input" class="form-control" id="upc" aria-describedby="emailHelp"
-                                placeholder="Enter UPC">
+                                placeholder="Enter UPC Number">
                         </div>
 
                         <div class="form-group">
@@ -84,7 +115,6 @@
                         <button id="save-product" class="btn btn-primary">Save</button>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
