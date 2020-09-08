@@ -52,12 +52,20 @@ const getData = {
     return returnObj;
   },
   getChartData: async period => {
-    const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
-    return cb(date1, period);
+    try {
+      const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
+      return cb(date1, period);
+    } catch (error) {
+      console.log(error);
+    }
   },
   getMoveData: async period => {
-    const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
-    return move(date1, period);
+    try {
+      const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
+      return move(date1, period);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

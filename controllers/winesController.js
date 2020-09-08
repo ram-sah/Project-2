@@ -22,15 +22,23 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/getchart/:period", async (req, res) => {
-  const period = req.params.period;
-  const data = await getData.getChartData(period);
-  res.json(data);
+  try {
+    const period = req.params.period;
+    const data = await getData.getChartData(period);
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/getmove/:period", async (req, res) => {
-  const period = req.params.period;
-  const data = await getData.getMoveData(period);
-  res.json(data);
+  try {
+    const period = req.params.period;
+    const data = await getData.getMoveData(period);
+    res.json(data);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/:period", async (req, res) => {
