@@ -42,10 +42,30 @@ router.get("/:period", async (req, res) => {
   res.render("index", hbsObject);
 });
 
+router.post("/api/product", (req, res) => {
+  db.product.create(req.body).then(dbresult => {
+    res.json(dbresult);
+  });
+});
+
 router.get("/api/product", (req, res) => {
   db.product.findAll({}).then(dbresult => {
     res.json(dbresult);
   });
+});
+
+// specify which product we want to destroy with "where"
+router.delete("/api/product/:id", (req, res) => {
+  db.product
+    .destroy({
+      where: {
+        productname: req.params.id
+      }
+    })
+    .then(dbresult => {
+      console.log("db:", dbresult);
+      res.json(dbresult);
+    });
 });
 
 module.exports = router;

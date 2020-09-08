@@ -48,7 +48,6 @@ $.get("/api/product", dbProd => {
 // For page 3rd
 $("#wineList").change(() => {
   // console.log("value selected:", event.target.value);
-  // console.log(productList[event.target.value]);
   $("#upc").text(productList[event.target.value].upc);
   $("#vendor").text(productList[event.target.value].vendor);
   $("#price").text(productList[event.target.value].price);
@@ -65,11 +64,24 @@ $("#vendorList").change(() => {
   console.log("Selected Vendor:", selectVendor);
   $("#vendorWine").empty();
   for (let i = 0; i < productList.length; i++) {
-    // console.log("here are list", productList[i].vendor);
     // console.log(productList[event.target.value]);
     if (productList[i].vendor.includes(selectVendor)) {
       // console.log("show", i);
       $("#vendorWine").append(`<p>${productList[i].productname}</p>`);
     }
   }
+});
+
+// This function delete Specific data
+$("#delete-product").on("click", event => {
+  event.preventDefault();
+  const deleteProduct = $("#prodt-name").val();
+  console.log("here are list", deleteProduct);
+  $.ajax({
+    method: "DELETE",
+    url: "/api/product/" + deleteProduct
+  }).then(dbProd => {
+    console.log(dbProd);
+    location.reload();
+  });
 });

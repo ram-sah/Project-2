@@ -4,12 +4,11 @@ form.login {
 }
 
 body {
-  font-family: "Lato", sans-serif;
-  /* background-image: url(https://hdwallsource.com/img/2018/2/wine-wallpaper-background-hd-62581-64553-hd-wallpapers.jpg); */
-  /* background-image: url(https://i.pinimg.com/originals/07/eb/09/07eb09e6867bd4999062d8b197bcef98.jpg); */
+  font-family: "Lato", sans-serif;  
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  padding-bottom: 90px;
 }
 
 .sidebar {
@@ -25,10 +24,11 @@ body {
 .sidebar a {
   display: block;
   color: black;
-  font-size: larger;
+  font-size: x-large;
   font-weight: bold;
   padding: 30px;
   text-decoration: none;
+  margin-top: 35px;
 }
  
 .sidebar a.active {
