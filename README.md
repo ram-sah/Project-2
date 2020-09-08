@@ -10,21 +10,21 @@ This project is Wine Store Management application. Wine 'A' Lot Management Syste
         
 ## Table of Contents
        
-* [Installation](#installation:)
+* [Installation](#installation)
             
-* [Usage](#usage:)
+* [Usage](#usage)
             
-* [License](#license:)
+* [License](#license)
 
-* [Contributors](#Contributors:)
+* [Contributors](#Contributors)
             
-* [Questions](#Questions:)
+* [Questions](#Questions)
 
-* [Demo](#Application-Demo:)
+* [Demo](#Application-Demo)
 
-* [Clips](#Application-Clips:)
+* [Clips](#Application-Clips)
          
-## Installation:
+## Installation
             
 To install necessary dependencies, run the following command on your terminal:
             
@@ -32,22 +32,22 @@ To install necessary dependencies, run the following command on your terminal:
 npm install
 ```
         
-## Usage:
+## Usage
             
 Run 'node server.js' from Terminal
 
-## License: 
+## License
             
 This project is licensed under the MIT license.
 
-## Contributors:
+## Contributors
 
 * Bobby Jones
 * Gary Burner
 * Piayon
 * Ram Sah
 
-## Questions:
+## Questions
 
  [![Author: Bobby](https://img.shields.io/badge/Author-BobbyJones-red.svg)](https://github.com/jones9682) [![Author: Gary](https://img.shields.io/badge/Author-GaryBurner-blue.svg)](https://github.com/grburner) [![Author: Piayon](https://img.shields.io/badge/Author-Piayon-yellow.svg)](https://github.com/piayonl) [![Author: Ram](https://img.shields.io/badge/Author-RamSah-green.svg)](https://github.com/ram-sah)
 
@@ -63,9 +63,14 @@ If you have any questions please contact us at :
 ## Heroku: [Application-link](https://project-2-group1.herokuapp.com/)
 
 
-## Application-Demo: 
+## Application-Demo
+
+![project-2](https://user-images.githubusercontent.com/64625123/92516173-ce0bbc80-f1e2-11ea-85ea-4e63b1a28f1e.gif)
 
 
 
-## Application-Clips: 
+## Application-Clips
 
+<img width="1439" alt="Screen Shot 2020-09-08 at 2 59 54 PM" src="https://user-images.githubusercontent.com/64625123/92517132-2f805b00-f1e4-11ea-9c27-58a1a679fb76.png">
+<img width="1438" alt="Screen Shot 2020-09-08 at 3 00 14 PM" src="https://user-images.githubusercontent.com/64625123/92517144-327b4b80-f1e4-11ea-8609-758ceaa9b200.png">
+<img width="1440" alt="Screen Shot 2020-09-08 at 3 00 26 PM" src="https://user-images.githubusercontent.com/64625123/92517151-34450f00-f1e4-11ea-9de1-b272e8f1ec26.png">
