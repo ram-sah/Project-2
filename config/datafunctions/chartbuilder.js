@@ -2,10 +2,10 @@ const moment = require("moment");
 const { QueryTypes } = require("sequelize");
 const { sequelize } = require("../../models");
 
-const chartObject = [];
 const chartBuilder = async (date, range) => {
+  const chartObject = [];
   let currentDate = moment(date).format("YYYY-MM-DD");
-  for (i = 0; i < range; i++) {
+  for (let i = 0; i < range; i++) {
     const pt1 = await sequelize.query(
       `SELECT sum(products.price * sales.unitssold) AS point1 FROM products INNER JOIN sales ON products.upc = sales.upc WHERE sales.date = "${currentDate}";`,
       { type: QueryTypes.SELECT }
