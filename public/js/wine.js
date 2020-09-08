@@ -1,7 +1,10 @@
 $(document).ready(() => {
-  getChartData().then(data => {
+  let currentRange = $(location)
+    .attr("pathname")
+    .replace("/", "");
+  getChartData().then(resp => {
     const chartRange = am4core.create("chartdiv", am4charts.XYChart);
-    chartRange.data = data;
+    chartRange.data = resp;
     const dateAxis = chartRange.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.grid.template.location = 0;
     dateAxis.renderer.minGridDistance = 60;
@@ -204,16 +207,16 @@ $(document).ready(() => {
     // get stats functions
   });
   async function getChartData() {
-    console.log("into get chart Data");
-    const query = "http://localhost:8080/getchart/7"; //change this to heroku url on push
+    //const query = `http://localhost:8080/getchart/${currentRange}`;
+    const query = `https://project-2-group1.herokuapp.com/getchart/${currentRange}`;
     const response = await fetch(query, {
       method: "GET"
     });
     return response.json();
   }
   async function getMoveData() {
-    console.log("into get movement data");
-    const query = "http://localhost:8080/getmove/7";
+    //const query = `http://localhost:8080/getmove/${currentRange}`;
+    const query = `https://project-2-group1.herokuapp.com/getmove/${currentRange}`;
     const response = await fetch(query, {
       method: "GET"
     });
@@ -221,7 +224,7 @@ $(document).ready(() => {
   }
 
   function showDateRange() {
-    $("#daterangedisplay").text(
+    currentRange = $("#daterangedisplay").text(
       $(location)
         .attr("pathname")
         .replace("/", "")

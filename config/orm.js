@@ -52,11 +52,11 @@ const getData = {
     return returnObj;
   },
   getChartData: async period => {
-    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
     return cb(date1, period);
   },
   getMoveData: async period => {
-    const date1 = moment("2020-08-31").format("YYYY-MM-DD"); // dummy current date to match data
+    const date1 = moment("2020-08-30").format("YYYY-MM-DD"); // dummy current date to match data
     return move(date1, period);
   }
 };
