@@ -207,7 +207,7 @@ $(document).ready(() => {
     // get stats functions
   });
   async function getChartData() {
-    //const query = `http://localhost:8080/getchart/${currentRange}`; 
+    //const query = `http://localhost:8080/getchart/${currentRange}`;
     const query = `https://project-2-group1.herokuapp.com/getchart/${currentRange}`;
     const response = await fetch(query, {
       method: "GET"
